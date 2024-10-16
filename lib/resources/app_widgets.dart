@@ -7,75 +7,77 @@ class CustomMovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        width: 170,
-        height: 250,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: Colors.white,
-          boxShadow: const [
-            BoxShadow(
-              blurRadius: 0.2,
+    return Container(
+      width: 170,
+      height: 250,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            blurRadius: 0.2,
+            color: Colors.grey,
+            spreadRadius: 0.5,
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 130,
+            height: 140,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                AppImages.movieImage,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          const SizedBox(height: 5),
+          const Text(
+            AppStrings.movieTitle,
+            style: TextStyle(
+                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          const SizedBox(height: 5),
+          const Text(
+            AppStrings.movieGenre,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
               color: Colors.grey,
-              spreadRadius: 0.5,
             ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 130,
-              height: 140,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  AppImages.movieImage,
-                  fit: BoxFit.fill,
-                ),
-              ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 5),
+          Container(
+            height: 20,
+            width: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.green.shade300,
             ),
-            const SizedBox(height: 5),
-            const Text(
-              AppStrings.movieTitle,
-              style: TextStyle(
+            child: const Center(
+              child: Text(
+                AppStrings.movieRating,
+                style: TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            const SizedBox(height: 5),
-            const Text(
-              AppStrings.movieGenre,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.grey),
-            ),
-            const SizedBox(height: 5),
-            Container(
-              height: 20,
-              width: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.green.shade300,
-              ),
-              child: const Center(
-                child: Text(
-                  AppStrings.movieRating,
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

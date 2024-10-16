@@ -7,14 +7,28 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.shade100,
       appBar: AppBar(
-        title: const Text('IMDB Movies List'),
+        title: const Text(
+          'IMDB Movies List',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-          child: CustomMovieCard(),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.73,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 20,
+            ),
+            itemCount: 10,
+            itemBuilder: (context, index) => const CustomMovieCard(),
+          ),
         ),
       ),
     );
